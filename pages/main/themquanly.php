@@ -28,6 +28,7 @@
                         <option value="2">Phòng khảo thí</option>
                         <option value="3">Phòng công tác sinh viên</option>
                         <option value="4">Phòng kỹ thuật</option>
+                        <option value="5">Phòng quản Lý sinh viên</option>
                     </select>
                 </div>
                 <div class="col-12">

@@ -36,6 +36,7 @@
                         <option value="3" <?php if ($row['quyenhan'] == '3') echo 'selected'; ?>>Phòng công tác sinh
                             viên</option>
                         <option value="4" <?php if ($row['quyenhan'] == '4') echo 'selected'; ?>>Phòng kỹ thuật</option>
+                        <option value="5" <?php if ($row['quyenhan'] == '5') echo 'selected'; ?>>Phòng quản Lý sinh viên</option>
                     </select>
                 </div>
 

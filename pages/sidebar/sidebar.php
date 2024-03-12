@@ -22,25 +22,43 @@ if(isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1){
             </div>
         </div>
         <ul class="sidebar-nav">
-            <?php
-            if(isset($_SESSION['id_ql']) || isset($_SESSION['id_sv']) || isset($_SESSION['id_gv'])){
-                if(isset($_SESSION['quyenhan']) && ($_SESSION['quyenhan'] == 0 || $_SESSION['quyenhan'] == 1 || $_SESSION['quyenhan'] == 2)){
-                    ?>
+           
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link">
                     <i class="lni lni-agenda"></i>
                     <span>Nhiệm vụ</span>
                 </a>
             </li>
+            <?php
+                 if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan']==0){
+            ?>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
                     <i class="lni lni-popup"></i>
                     <span>Thông báo</span>
                 </a>
+                <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-two"
+                            aria-expanded="false" aria-controls="multi-two">
+                            Cơ sở vật chất
+                        </a>
+                        <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=lichsuphanhoicosovatchatcd" class="sidebar-link">Lịch sử chưa
+                                    duyệt</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=lichsuphanhoicosovatchatdd" class="sidebar-link">Lịch sử đã
+                                    duyệt</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=lichsuphanhoicosovatchatkd" class="sidebar-link">Lịch sử không duyệt</a>
+                        </ul>
+                    </li>
+                </ul>
             </li>
-            <?php
-                    if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan'] == 0){
-                        ?>
             <li class="sidebar-item">
                 <a href="index.php?quanly=hoso" class="sidebar-link">
                     <i class="lni lni-user"></i>
@@ -65,9 +83,7 @@ if(isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1){
                     </li>
                 </ul>
             </li>
-            <?php
-                    }
-                    ?>
+          
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
                     aria-expanded="false" aria-controls="auth">
@@ -105,9 +121,125 @@ if(isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1){
                 </ul>
             </li>
             <?php
-                } elseif(isset($_SESSION['id_sv'])){
-                ?>
-            <li class="sidebar-item">
+                    }else if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan'] == 6){
+                        ?>
+                         <li class="sidebar-item">
+                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                    <i class="lni lni-popup"></i>
+                    <span>Thông báo</span>
+                </a>
+                <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-two"
+                            aria-expanded="false" aria-controls="multi-two">
+                            Cơ sở vật chất
+                        </a>
+                        <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=cosovatchatcntt" class="sidebar-link">Cơ sở vật chất</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=lichsuphanhoicosovatchatdd" class="sidebar-link">Lịch sử đã
+                                    duyệt</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=lichsuphanhoicosovatchatkd" class="sidebar-link">Lịch sử không duyệt</a>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <?php
+                    }else if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan'] == 9){
+                        ?>
+                         <li class="sidebar-item">
+                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                    <i class="lni lni-popup"></i>
+                    <span>Thông báo</span>
+                </a>
+                <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-two"
+                            aria-expanded="false" aria-controls="multi-two">
+                            Cơ sở vật chất
+                        </a>
+                        <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=cosovatchatkt" class="sidebar-link">Cơ sở vật chất</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=lichsuphanhoicosovatchatdd" class="sidebar-link">Lịch sử đã
+                                    duyệt</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=lichsuphanhoicosovatchatkd" class="sidebar-link">Lịch sử không duyệt</a>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <?php
+                    }else if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan'] == 8){
+                        ?>
+                         <li class="sidebar-item">
+                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                    <i class="lni lni-popup"></i>
+                    <span>Thông báo</span>
+                </a>
+                <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-two"
+                            aria-expanded="false" aria-controls="multi-two">
+                            Cơ sở vật chất
+                        </a>
+                        <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=cosovatchatsp" class="sidebar-link">Cơ sở vật chất</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=lichsuphanhoicosovatchatsp" class="sidebar-link">Lịch sử đã
+                                    duyệt</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=lichsuphanhoicosovatchatsp" class="sidebar-link">Lịch sử không duyệt</a>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <?php
+                    }else if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan'] == 7){
+                        ?>
+                         <li class="sidebar-item">
+                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                    <i class="lni lni-popup"></i>
+                    <span>Thông báo</span>
+                </a>
+                <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-two"
+                            aria-expanded="false" aria-controls="multi-two">
+                            Cơ sở vật chất
+                        </a>
+                        <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=cosovatchatnn" class="sidebar-link">Cơ sở vật chất</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=lichsuphanhoicosovatchatnn" class="sidebar-link">Lịch sử đã
+                                    duyệt</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=lichsuphanhoicosovatchatnn" class="sidebar-link">Lịch sử không duyệt</a>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <?php
+                 }else if(isset($_SESSION['id_sv']) ){
+            ?>
+             <li class="sidebar-item">
                 <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                     data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
                     <i class="lni lni-layout"></i>
@@ -117,14 +249,18 @@ if(isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1){
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-two"
                             aria-expanded="false" aria-controls="multi-two">
-                            Hai liên kết
+                            Cơ sở vật chất
                         </a>
                         <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Link 1</a>
+                                <a href="index.php?quanly=phanhoicosovatchat" class="sidebar-link">Form phản hồi</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Link 2</a>
+                                <a href="index.php?quanly=lichsuphanhoicosovatchat" class="sidebar-link">Lịch sử </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="index.php?quanly=phanhoicosovatchatddsv" class="sidebar-link">Lịch sử đã
+                                    duyệt</a>
                             </li>
                         </ul>
                     </li>
@@ -158,8 +294,9 @@ if(isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1){
                 </a>
             </li>
             <?php
-                }else if(isset($_SESSION['id_gv'])){?>
-                 <li class="sidebar-item">
+                 }else if(isset($_SESSION['id_gv']) ){
+                    ?>
+            <li class="sidebar-item">
                 <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
                     aria-expanded="false" aria-controls="auth">
                     <i class="lni lni-protection"></i>
@@ -174,11 +311,12 @@ if(isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1){
                     </li>
                 </ul>
             </li>
-                <?php
-                }
-            }
+            <?php
             ?>
         </ul>
+        <?php
+                 }
+            ?>
         <div class="sidebar-footer">
             <a href="index.php?dangxuat=1" class="sidebar-link">
                 <i class="lni lni-exit"></i>
