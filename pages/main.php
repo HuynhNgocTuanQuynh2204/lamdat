@@ -42,140 +42,144 @@
                 include("main/doimatkhausv.php");
             }
 
-            else if($tam =='guiphanhoicosovatchat'){
-                include("xuly/phanhoicosovatchat.php");
+            else if($tam =='guiphanhoi'){
+                include("xuly/phanhoi.php");
             }
 
-            else if($tam =='duyetcosovatchat'){
-                include("xuly/duyetcosovatchat.php");
+            else if($tam =='duyetphanhoi'){
+                include("xuly/duyetphanhoi.php");
             }
 
-            else if($tam =='lichsuphanhoicosovatchatcd'){
-                include("quanly/lichsuphanhoicosovatchatcd.php");
+            else if($tam =='lichsuphanhoicd'){
+                include("quanly/lichsuphanhoicd.php");
             }
 
-            else if($tam =='lidotuchoicsvc'){
-                include("quanly/lidotuchoicsvc.php");
+            else if($tam =='lidotuchoiphanhoi'){
+                include("quanly/lidotuchoiphanhoi.php");
             }
 
-            else if($tam =='khongduyetcsvc'){
-                include("quanly/khongduyetcsvc.php");
+            else if($tam =='khongduyetphanhoi'){
+                include("quanly/khongduyetphanhoi.php");
             }
 
-            else if($tam =='duyetphanhoicsvc'){
-                include("quanly/duyetphanhoicsvc.php");
+            else if($tam =='duyetphanhoiql'){
+                include("quanly/duyetphanhoiql.php");
             }
 
-            else if($tam =='cosovatchatcntt'){
-                include("cntt/cosovatchatcntt.php");
+            else if($tam =='phanhoicntt'){
+                include("cntt/phanhoicntt.php");
             }
 
-            else if($tam =='chitietcosovatchatcntt'){
-                include("cntt/chitietcosovatchatcntt.php");
+            else if($tam =='chitietphanhoicntt'){
+                include("cntt/chitietphanhoicntt.php");
             }
 
-            else if($tam =='giaiquyetcsvccntt'){
-                include("cntt/giaiquyetcsvccntt.php");
+            else if($tam =='giaiquyetphanhoicntt'){
+                include("cntt/giaiquyetphanhoicntt.php");
             }
 
-            else if($tam =='giaiquyetcsvccnttxong'){
-                include("cntt/giaiquyetcsvccnttxong.php");
+            else if($tam =='giaiquyetphanhoicnttxong'){
+                include("cntt/giaiquyetphanhoicnttxong.php");
             }
 
-            else if($tam =='giaiquyetcsvccnttxong1'){
-                include("cntt/giaiquyetcsvccnttxong1.php");
+            else if($tam =='giaiquyetphanhoicnttxong1'){
+                include("cntt/giaiquyetphanhoicnttxong1.php");
             }
 
-            else if($tam =='cosovatchatkt'){
-                include("kinhte/cosovatchatkt.php");
+            else if($tam =='phanhoikt'){
+                include("kinhte/phanhoikt.php");
             }
 
-            else if($tam =='chitietcosovatchatkt'){
-                include("kinhte/chitietcosovatchatkt.php");
+            else if($tam =='chitietphanhoikt'){
+                include("kinhte/chitietphanhoikt.php");
             }
 
-            else if($tam =='giaiquyetcsvckt'){
-                include("kinhte/giaiquyetcsvckt.php");
+            else if($tam =='giaiquyetphanhoikt'){
+                include("kinhte/giaiquyetphanhoikt.php");
             }
 
-            else if($tam =='giaiquyetcsvcktxong'){
-                include("kinhte/giaiquyetcsvcktxong.php");
+            else if($tam =='giaiquyetphanhoiktxong'){
+                include("kinhte/giaiquyetphanhoiktxong.php");
             }
 
-            else if($tam =='giaiquyetcsvcktxong1'){
-                include("kinhte/giaiquyetcsvcktxong1.php");
+            else if($tam =='giaiquyetphanhoiktxong1'){
+                include("kinhte/giaiquyetphanhoiktxong1.php");
             }
 
-            else if($tam =='cosovatchatsp'){
-                include("supham/cosovatchatsp.php");
+            else if($tam =='phanhoisp'){
+                include("supham/phanhoisp.php");
             }
 
-            else if($tam =='chitietcosovatchatsp'){
-                include("supham/chitietcosovatchatsp.php");
+            else if($tam =='chitietphanhoisp'){
+                include("supham/chitietphanhoisp.php");
             }
 
-            else if($tam =='giaiquyetcsvcsp'){
-                include("supham/giaiquyetcsvcsp.php");
+            else if($tam =='giaiquyetphanhoisp'){
+                include("supham/giaiquyetphanhoisp.php");
             }
 
-            else if($tam =='giaiquyetcsvcspxong'){
-                include("supham/giaiquyetcsvcspxong.php");
+            else if($tam =='giaiquyetphanhoispxong'){
+                include("supham/giaiquyetphanhoispxong.php");
             }
 
-            else if($tam =='giaiquyetcsvcspxong1'){
-                include("supham/giaiquyetcsvcspxong1.php");
+            else if($tam =='giaiquyetphanhoispxong1'){
+                include("supham/giaiquyetphanhoispxong1.php");
             }
 
-            else if($tam =='cosovatchatnn'){
-                include("nongnghiep/cosovatchatnn.php");
+            else if($tam =='phanhoinn'){
+                include("nongnghiep/phanhoinn.php");
             }
 
-            else if($tam =='chitietcosovatchatnn'){
-                include("nongnghiep/chitietcosovatchatnn.php");
+            else if($tam =='chitietphanhoinn'){
+                include("nongnghiep/chitietphanhoinn.php");
             }
 
-            else if($tam =='giaiquyetcsvcnn'){
-                include("nongnghiep/giaiquyetcsvcnn.php");
+            else if($tam =='giaiquyetphanhoinn'){
+                include("nongnghiep/giaiquyetphanhoinn.php");
             }
 
-            else if($tam =='giaiquyetcsvcnnxong'){
-                include("nongnghiep/giaiquyetcsvcnnxong.php");
+            else if($tam =='giaiquyetphanhoinnxong'){
+                include("nongnghiep/giaiquyetphanhoinnxong.php");
             }
 
-            else if($tam =='giaiquyetcsvcnnxong1'){
-                include("nongnghiep/giaiquyetcsvcnnxong1.php");
+            else if($tam =='giaiquyetphanhoinnxong1'){
+                include("nongnghiep/giaiquyetphanhoinnxong1.php");
             }
 
-            else if($tam =='lichsuphanhoicosovatchatkd'){
-                include("quanly/lichsuphanhoicosovatchatkd.php");
+            else if($tam =='lichsuphanhoikd'){
+                include("quanly/lichsuphanhoikd.php");
             }
 
-            else if($tam =='lichsuphanhoicosovatchatdd'){
-                include("quanly/lichsuphanhoicosovatchatdd.php");
+            else if($tam =='lichsuphanhoidd'){
+                include("quanly/lichsuphanhoidd.php");
             }
 
-            else if($tam =='suacosovatchat'){
-                include("sinhvien/suacosovatchat.php");
+            else if($tam =='suaphanhoi'){
+                include("sinhvien/suaphanhoi.php");
             }
 
-            else if($tam =='xacnhancsvc'){
-                include("sinhvien/xacnhancsvc.php");
+            else if($tam =='xacnhanphanhoi'){
+                include("sinhvien/xacnhanphanhoi.php");
             }
 
-            else if($tam =='chitietcosovatchat'){
-                include("sinhvien/chitietcosovatchat.php");
+            else if($tam =='phanhoiddsv'){
+                include("sinhvien/phanhoiddsv.php");
             }
 
-            else if($tam =='xacnhancsvc1'){
-                include("sinhvien/xacnhancsvc1.php");
+            else if($tam =='chitietphanhoi'){
+                include("sinhvien/chitietphanhoi.php");
             }
 
-            else if($tam =='phanhoicosovatchat'){
-                include("sinhvien/phanhoicosovatchat.php");
+            else if($tam =='xacnhanphanhoi1'){
+                include("sinhvien/xacnhanphanhoi1.php");
             }
 
-            else if($tam =='lichsuphanhoicosovatchat'){
-                include("sinhvien/lichsuphanhoicosovatchat.php");
+            else if($tam =='phanhoi'){
+                include("sinhvien/phanhoi.php");
+            }
+
+            else if($tam =='lichsuphanhoi'){
+                include("sinhvien/lichsuphanhoi.php");
             }
 
             else if($tam =='ttsinhvien'){
