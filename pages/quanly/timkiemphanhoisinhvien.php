@@ -16,7 +16,7 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                     <form class="form-inline" action="index.php?quanly=timkiemphanhoisinhvien" method="POST">
                         <div class="input-group w-100">
                             <input type="search" name="tukhoa" class="form-control"
-                                placeholder="Nhập tên sinh viên hoặc thể loại phản hồi" aria-label="Search">
+                                placeholder="Nhập thể loại phản hồi hoặc ngày phản hồi để tìm kiếm " aria-label="Search">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-success" type="submit" name="timkiem">Tìm
                                     kiếm</button>
