@@ -20,7 +20,7 @@
                             // Tạo mảng dữ liệu để sử dụng trong biểu đồ
                             $data = array();
                             while ($row = $result->fetch_assoc()) {
-                                if ($row['trangthai'] == 2) {
+                                if ($row['trangthai'] == 5) {
                                     $tenTrangThai = 'Đã duyệt';
                                 } else {
                                     $tenTrangThai = 'Đang trong quá trình chờ duyệt';
@@ -90,6 +90,7 @@
             
             <body>
                 <div class="container">
+                <h1>Tổng số lượng phản hồi đã giải quyết của từng phòng ban</h1>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="stati turquoise ">

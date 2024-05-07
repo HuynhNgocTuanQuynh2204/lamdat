@@ -4,9 +4,10 @@ if(isset($_POST['timkiem'])){
 } else{
    $tukhoa = '';
 }
-$sql_lietke_phanhoi = "SELECT * FROM tbl_phanhoi,tbl_sinhvien WHERE tbl_phanhoi.id_sv = tbl_sinhvien.id_sv AND tbl_phanhoi.theloai LIKE '%" . $tukhoa . "%' OR tbl_phanhoi.thoigian LIKE '%" . $tukhoa . "%' ORDER BY tbl_phanhoi.id_phanhoi DESC";
+$sql_lietke_phanhoi = "SELECT * FROM tbl_phanhoi,tbl_sinhvien WHERE tbl_phanhoi.id_sv = tbl_sinhvien.id_sv AND (tbl_phanhoi.theloai LIKE '%" . $tukhoa . "%' OR tbl_phanhoi.thoigian LIKE '%" . $tukhoa . "%') ORDER BY tbl_phanhoi.id_phanhoi DESC";
 $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
 ?>
+
 <div class="main p-3">
     <div class="text-center">
         <div class="container" style="padding: 10px;">
