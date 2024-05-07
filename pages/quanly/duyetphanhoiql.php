@@ -12,6 +12,7 @@
                     <label for="validationCustom04" class="form-label">Mức độ ưu tiên</label>
                     <select class="form-select" id="validationCustom04" name="mucdo">
                         <option value="Cao">Cao</option>
+                        <option value="Trung bình">Trung bình</option>
                         <option value="Thấp">Thấp</option>
                     </select>
                 </div>

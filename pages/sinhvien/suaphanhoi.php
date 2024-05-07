@@ -11,18 +11,13 @@
                 action="index.php?quanly=guiphanhoi&id=<?php echo $row['id_phanhoi'] ?>" novalidate
                 enctype="multipart/form-data">
                 <div class="col-md-6">
-                    <label for="validationCustom01" class="form-label">Chủ đề</label>
-                    <input type="text" class="form-control" id="validationCustom01" placeholder="Chủ đề và khu vực có liên quan"
-                        name="chude" value="<?php echo $row['chude']  ?>">
-                </div>
-                <div class="col-md-6">
                     <label for="inputState" class="form-label">Thể loại</label>
                     <select id="inputState" class="form-select" name="theloai">
                         <option value="Cơ sở vật chất"
                             <?php if ($row['theloai'] == 'Cơ sở vật chất') echo 'selected'; ?>>Cơ sở vật chất</option>
                         <option value="Môn học" <?php if ($row['theloai'] == 'Môn học') echo 'selected'; ?>>Môn học
                         </option>
-                        <option value="Giáo viên" <?php if ($row['theloai'] == 'Giáo viên') echo 'selected'; ?>>Giáo
+                        <option value="Giáo viên" <?php if ($row['theloai'] == 'Giảng viên') echo 'selected'; ?>>Giảng viên
                             viên</option>
                         <option value="Học phí" <?php if ($row['theloai'] == 'Học phí') echo 'selected'; ?>>Học phí
                         </option>

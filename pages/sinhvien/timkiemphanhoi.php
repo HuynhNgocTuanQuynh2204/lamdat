@@ -1,5 +1,11 @@
 <?php
-$sql_lietke_phanhoi = "SELECT * FROM tbl_phanhoi,tbl_sinhvien WHERE tbl_phanhoi.id_sv = tbl_sinhvien.id_sv ORDER BY tbl_phanhoi.id_phanhoi DESC";
+ if(isset($_POST['timkiem'])){
+    $tukhoa = $_POST['tukhoa'];
+} else{
+    $tukhoa = '';
+}
+$id_sv = $_SESSION['id_sv'];
+$sql_lietke_phanhoi = "SELECT * FROM tbl_phanhoi,tbl_sinhvien WHERE tbl_phanhoi.id_sv = tbl_sinhvien.id_sv AND tbl_phanhoi.id_sv = '$id_sv' AND tbl_phanhoi.chude LIKE '%" . $tukhoa . "%' AND tbl_phanhoi.theloai LIKE '%" . $tukhoa . "%' ";
 $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
 ?>
 <div class="main p-3">
@@ -7,10 +13,10 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
         <div class="container" style="padding: 10px;">
             <div class="row justify-content-center mt-2">
                 <div class="col-lg-6">
-                    <form class="form-inline" action="index.php?quanly=timkiemphanhoisinhvien" method="POST">
+                    <form class="form-inline" action="index.php?quanly=timkiemphanhoi" method="POST">
                         <div class="input-group w-100">
-                            <input type="search" name="tukhoa" class="form-control"
-                                placeholder="Nhập tên sinh viên hoặc thể loại phản hồi" aria-label="Search">
+                            <input type="search" name="tukhoa" class="form-control" placeholder="Nhập chủ đề hoặc thể loại"
+                                aria-label="Search">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-success" type="submit" name="timkiem">Tìm
                                     kiếm</button>
@@ -20,16 +26,15 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                 </div>
             </div>
         </div>
-        <h1 style="text-align: center;padding: 10px;">Lịch sử phản hồi chưa duyệt</h1>
+        <h6 style="text-align: center;padding: 10px;">Tìm kiếm: <?php echo $_POST['tukhoa'];  ?></h6>
+        <h1 style="text-align: center;padding: 10px;">Lịch sử phản hồi</h1>
         <div class="container">
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead class="table-success">
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Họ và tên sinh viên</th>
-                            <th scope="col">Lớp</th>
-                            <th scope="col">Khoa</th>
+                            <th scope="col">Chủ đề và khu vực có liên quan</th>
                             <th scope="col">Thể loại</th>
                             <th scope="col">Mức độ ưu tiên</th>
                             <th scope="col">Hình ảnh</th>
@@ -44,13 +49,10 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
             $i = 0;
             while ($row = mysqli_fetch_array($query_lietke_phanhoi)) {
               $i++;
-              if ($row['trangthai'] == 0) {
             ?>
                         <tr>
                             <td><?php echo $i ?></td>
-                            <td><?php echo $row['tensv'] ?></td>
-                            <td><?php echo $row['lop'] ?></td>
-                            <td><?php echo $row['khoa'] ?></td>
+                            <td><?php echo $row['chude'] ?></td>
                             <td><?php echo $row['theloai'] ?></td>
                             <td><?php echo $row['mucdo'] ?></td>
                             <td>
@@ -62,13 +64,13 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                     if ($row['trangthai'] == 0) {
                         echo '<b style="color:red">Đang chờ xét duyệt</b>';
                     } else if ($row['trangthai'] == 1) {
-                        echo '<b style="color: blueviolet">QTV đã từ chối phản hồi</b>';
+                        echo "<b style='color: blueviolet'>QTV đã từ chối phản hồi: <a href='index.php?quanly=lidotuchoiphanhoi&id={$row['id_phanhoi']}'>Lí do</a></b>";
                     } else if ($row['trangthai'] == 2) {
                         echo '<b style="color:darkblue">Đã duyệt phản hồi và gửi đơn vị có liên quan</b>';
                     }else if ($row['trangthai'] == 3) {
                         echo '<b style="color:darkblue">Đang trong quá trình giải quyết</b>';
                     } else if ($row['trangthai'] == 4) {
-                        echo '<b style="color:darkblue">Phản hồi đã giải quyết thành công vui lòng xác nhận</b>';
+                        echo "<b style='color: darkblue'>Phản hồi đã giải quyết thành công vui lòng xác nhận <a href='index.php?quanly=xacnhanphanhoi&id={$row['id_phanhoi']}'>Xác nhận</a></b>";
                     } else {
                         echo '<b style="color:darkblue">Phản hồi đã được giải quyết</b>';
                     }
@@ -77,16 +79,21 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                             <td><?php echo $row['thoigian'] ?></td>
                             <td><?php echo $row['hoanthanh'] ?></td>
                             <td>
-                                <a href="index.php?quanly=duyetphanhoiql&id=<?php echo $row['id_phanhoi'] ?>"
-                                    class="btn btn-danger ">Duyệt phản hồi</a><br><br>
-                                <a href="index.php?quanly=khongduyetphanhoi&id=<?php echo $row['id_phanhoi'] ?>"
-                                    class="btn btn-success">Không duyệt </a><br><br>
+                                <a href="index.php?quanly=guiphanhoi&id=<?php echo $row['id_phanhoi'] ?>"
+                                    class="btn btn-danger ">Xóa </a><br><br>
+                                    <?php
+                                    if ($row['trangthai'] ==0 ){
+                                    ?>
+                                <a href="index.php?quanly=suaphanhoi&id=<?php echo $row['id_phanhoi'] ?>"
+                                    class="btn btn-success">Sửa </a><br><br>
+                                    <?php
+                                    }
+                                    ?>
                                 <a href="index.php?quanly=chitietphanhoi&id=<?php echo $row['id_phanhoi'] ?>"
                                     class="btn btn-info">Xem chi tiếtt</a>
                             </td>
                         </tr>
                         <?php }
-            }
            ?>
                     </tbody>
                 </table>

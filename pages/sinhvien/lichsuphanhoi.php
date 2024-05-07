@@ -8,9 +8,9 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
         <div class="container" style="padding: 10px;">
             <div class="row justify-content-center mt-2">
                 <div class="col-lg-6">
-                    <form class="form-inline" action="index.php?quanly=timkiemsinhvien" method="POST">
+                    <form class="form-inline" action="index.php?quanly=timkiemphanhoi" method="POST">
                         <div class="input-group w-100">
-                            <input type="search" name="tukhoa" class="form-control" placeholder="Nhập số phòng"
+                            <input type="search" name="tukhoa" class="form-control" placeholder="Nhập chủ đề hoặc thể loại"
                                 aria-label="Search">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-success" type="submit" name="timkiem">Tìm
@@ -28,7 +28,6 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                     <thead class="table-success">
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Chủ đề và khu vực có liên quan</th>
                             <th scope="col">Thể loại</th>
                             <th scope="col">Mức độ ưu tiên</th>
                             <th scope="col">Hình ảnh</th>
@@ -46,7 +45,6 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
             ?>
                         <tr>
                             <td><?php echo $i ?></td>
-                            <td><?php echo $row['chude'] ?></td>
                             <td><?php echo $row['theloai'] ?></td>
                             <td><?php echo $row['mucdo'] ?></td>
                             <td>

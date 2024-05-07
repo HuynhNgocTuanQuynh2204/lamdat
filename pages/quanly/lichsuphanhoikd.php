@@ -4,6 +4,22 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
 ?>
 <div class="main p-3">
     <div class="text-center">
+    <div class="container" style="padding: 10px;">
+            <div class="row justify-content-center mt-2">
+                <div class="col-lg-6">
+                    <form class="form-inline" action="index.php?quanly=timkiemphanhoisinhvien" method="POST">
+                        <div class="input-group w-100">
+                            <input type="search" name="tukhoa" class="form-control"
+                                placeholder="Nhập tên sinh viên hoặc thể loại phản hồi" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-success" type="submit" name="timkiem">Tìm
+                                    kiếm</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <h1 style="text-align: center;padding: 10px;">Lịch sử phản hồi không duyệt</h1>
         <div class="container">
             <div class="table-responsive">
@@ -14,7 +30,6 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                             <th scope="col">Họ và tên sinh viên</th>
                             <th scope="col">Lớp</th>
                             <th scope="col">Khoa</th>
-                            <th scope="col">Chủ đề và khu vực có liên quan</th>
                             <th scope="col">Thể loại</th>
                             <th scope="col">Mức độ ưu tiên</th>
                             <th scope="col">Hình ảnh</th>
@@ -36,7 +51,6 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                             <td><?php echo $row['tensv'] ?></td>
                             <td><?php echo $row['lop'] ?></td>
                             <td><?php echo $row['khoa'] ?></td>
-                            <td><?php echo $row['chude'] ?></td>
                             <td><?php echo $row['theloai'] ?></td>
                             <td><?php echo $row['mucdo'] ?></td>
                             <td>

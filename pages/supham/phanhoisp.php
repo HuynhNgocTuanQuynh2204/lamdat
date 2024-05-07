@@ -11,7 +11,6 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                     <thead class="table-success">
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Chủ đề và khu vực có liên quan</th>
                             <th scope="col">Thể loại</th>
                             <th scope="col">Mức độ ưu tiên</th>
                             <th scope="col">Hình ảnh</th>
@@ -30,7 +29,6 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
             ?>
                         <tr>
                             <td><?php echo $i ?></td>
-                            <td><?php echo $row['chude'] ?></td>
                             <td><?php echo $row['theloai'] ?></td>
                             <td><?php echo $row['mucdo'] ?></td>
                             <td>

@@ -14,7 +14,6 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                             <th scope="col">Họ và tên sinh viên</th>
                             <th scope="col">Lớp</th>
                             <th scope="col">Khoa</th>
-                            <th scope="col">Chủ đề và khu vực có liên quan</th>
                             <th scope="col">Thể loại</th>
                             <th scope="col">Mức độ ưu tiên</th>
                             <th scope="col">Hình ảnh</th>
@@ -36,7 +35,6 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                             <td><?php echo $row['tensv'] ?></td>
                             <td><?php echo $row['lop'] ?></td>
                             <td><?php echo $row['khoa'] ?></td>
-                            <td><?php echo $row['chude'] ?></td>
                             <td><?php echo $row['theloai'] ?></td>
                             <td><?php echo $row['mucdo'] ?></td>
                             <td>

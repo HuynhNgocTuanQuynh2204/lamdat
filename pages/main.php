@@ -154,6 +154,10 @@
                 include("quanly/lichsuphanhoidd.php");
             }
 
+            else if($tam =='timkiemphanhoisinhvien'){
+                include("quanly/timkiemphanhoisinhvien.php");
+            }
+
             else if($tam =='suaphanhoi'){
                 include("sinhvien/suaphanhoi.php");
             }
@@ -164,6 +168,10 @@
 
             else if($tam =='phanhoiddsv'){
                 include("sinhvien/phanhoiddsv.php");
+            }
+
+            else if($tam =='timkiemphanhoi'){
+                include("sinhvien/timkiemphanhoi.php");
             }
 
             else if($tam =='chitietphanhoi'){
@@ -245,6 +253,10 @@
 
             else if($tam =='taikhoangiangvien'){
                 include("main/taikhoangiangvien.php");
+            }
+
+            else if($tam =='phongbanbd'){
+                include("main/phongbanbd.php");
             }
 
             else if($tam =='taikhoansinhvien'){
