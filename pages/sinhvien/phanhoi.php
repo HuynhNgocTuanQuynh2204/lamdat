@@ -8,16 +8,16 @@
                     <select id="inputState" class="form-select" name="theloai">
                         <option selected value="Cơ sở vật chất">Cơ sở vật chất</option>
                         <option value="Môn học">Môn học </option>
-                        <option value="Giảng viên viên">Giảng viên</option>
+                        <option value="Giảng viên ">Giảng viên</option>
                         <option value="Học phí">Học phí</option>
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">Mô tả vấn đề</label>
+                    <label for="validationCustom02" class="form-label">Nội dung phản ánh</label>
                     <textarea class="form-control" id="tomtat" rows="5" style="resize: none;" name="tomtat"></textarea>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">Gợi ý hoặc đề xuất cải thiện: </label>
+                    <label for="validationCustom02" class="form-label">Đề xuất cải thiện vấn đề: </label>
                     <textarea class="form-control" id="noidung" rows="5" style="resize: none;" name="noidung"></textarea>
                 </div>
                 <div class="col-md-6">

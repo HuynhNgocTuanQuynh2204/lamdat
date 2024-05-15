@@ -4,7 +4,7 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
 ?>
 <div class="main p-3">
     <div class="text-center">
-        <h1 style="text-align: center;padding: 10px;">Lịch sử phản hồi đã duyệt</h1>
+        <h1 style="text-align: center;padding: 10px;">Lịch sử phản hồi đã hoàn thành</h1>
         <div class="container">
             <div class="table-responsive">
                 <table class="table table-bordered">
@@ -14,7 +14,6 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                             <th scope="col">Họ và tên sinh viên</th>
                             <th scope="col">Lớp</th>
                             <th scope="col">Khoa</th>
-                            <th scope="col">Thể loại</th>
                             <th scope="col">Mức độ ưu tiên</th>
                             <th scope="col">Hình ảnh</th>
                             <th scope="col">Trạng thái</th>
@@ -28,14 +27,13 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
             $i = 0;
             while ($row = mysqli_fetch_array($query_lietke_phanhoi)) {
               $i++;
-              if ($row['trangthai'] != 0 && $row['trangthai'] != 1 && $row['trangthai'] != 5 && $row['phongban'] == 3) {
+              if ($row['trangthai'] == 5 && $row['phongban'] == 4) {
             ?>
                         <tr>
                             <td><?php echo $i ?></td>
                             <td><?php echo $row['tensv'] ?></td>
                             <td><?php echo $row['lop'] ?></td>
                             <td><?php echo $row['khoa'] ?></td>
-                            <td><?php echo $row['theloai'] ?></td>
                             <td><?php echo $row['mucdo'] ?></td>
                             <td>
                                 <img class="img img-responsive" width="100%" height="150px"
@@ -48,7 +46,7 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                 } else if ($row['trangthai'] == 1) {
                     echo '<b style="color: blueviolet">QTV đã từ chối phản hồi</b>';
                 } else if ($row['trangthai'] == 2) {
-                    echo '<b style="color:red">Vui lòng nhận và giải quyết vấn đề</b>';
+                    echo '<b style="color:darkblue">Đã duyệt phản hồi và gửi đơn vị có liên quan</b>';
                 }else if ($row['trangthai'] == 3) {
                     echo '<b style="color:darkblue">Đang trong quá trình giải quyết</b>';
                 } else if ($row['trangthai'] == 4) {
@@ -61,21 +59,8 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                             <td><?php echo $row['thoigian'] ?></td>
                             <td><?php echo $row['hoanthanh'] ?></td>
                             <td>
-                                <a href="index.php?quanly=chitietphanhoikt&id=<?php echo $row['id_phanhoi'] ?>"
+                                <a href="index.php?quanly=chitietphanhoi&id=<?php echo $row['id_phanhoi'] ?>"
                                     class="btn btn-info">Xem chi tiếtt</a>
-                                <br>
-                                <?php
-                                    if ($row['trangthai'] ==2 ) {
-                                    ?>
-                                <a href="index.php?quanly=giaiquyetphanhoikt&id=<?php echo $row['id_phanhoi'] ?>"
-                                    class="btn btn-success">Giải quyết</a>
-                                <?php
-                                    }else if($row['trangthai'] == 3){?>
-                                <a href="index.php?quanly=giaiquyetphanhoicnttxong&id=<?php echo $row['id_phanhoi'] ?>"
-                                    class="btn btn-danger">Giải quyết xong</a>
-                                <?php
-                                    }
-                                    ?>
                             </td>
                         </tr>
                         <?php }

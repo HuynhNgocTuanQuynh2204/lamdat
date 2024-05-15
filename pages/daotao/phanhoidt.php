@@ -28,7 +28,7 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
             $i = 0;
             while ($row = mysqli_fetch_array($query_lietke_phanhoi)) {
               $i++;
-              if ($row['trangthai'] != 0 && $row['trangthai'] != 1 && $row['trangthai'] != 5 && $row['phongban'] == 3) {
+              if ($row['trangthai'] != 0 && $row['trangthai'] != 1  && $row['trangthai'] != 5 && $row['phongban'] == 1) {
             ?>
                         <tr>
                             <td><?php echo $i ?></td>
@@ -61,17 +61,17 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
                             <td><?php echo $row['thoigian'] ?></td>
                             <td><?php echo $row['hoanthanh'] ?></td>
                             <td>
-                                <a href="index.php?quanly=chitietphanhoikt&id=<?php echo $row['id_phanhoi'] ?>"
+                                <a href="index.php?quanly=chitietphanhoidt&id=<?php echo $row['id_phanhoi'] ?>"
                                     class="btn btn-info">Xem chi tiếtt</a>
                                 <br>
                                 <?php
                                     if ($row['trangthai'] ==2 ) {
                                     ?>
-                                <a href="index.php?quanly=giaiquyetphanhoikt&id=<?php echo $row['id_phanhoi'] ?>"
+                                <a href="index.php?quanly=giaiquyetphanhoidt&id=<?php echo $row['id_phanhoi'] ?>"
                                     class="btn btn-success">Giải quyết</a>
                                 <?php
                                     }else if($row['trangthai'] == 3){?>
-                                <a href="index.php?quanly=giaiquyetphanhoicnttxong&id=<?php echo $row['id_phanhoi'] ?>"
+                                <a href="index.php?quanly=giaiquyetphanhoidtxong&id=<?php echo $row['id_phanhoi'] ?>"
                                     class="btn btn-danger">Giải quyết xong</a>
                                 <?php
                                     }

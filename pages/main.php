@@ -86,6 +86,10 @@
                 include("cntt/giaiquyetphanhoicnttxong1.php");
             }
 
+            else if($tam =='lichsuphanhoiddcntt'){
+                include("cntt/lichsuphanhoiddcntt.php");
+            }
+
             else if($tam =='phanhoikt'){
                 include("kinhte/phanhoikt.php");
             }
@@ -100,6 +104,9 @@
 
             else if($tam =='giaiquyetphanhoiktxong'){
                 include("kinhte/giaiquyetphanhoiktxong.php");
+            }
+            else if($tam =='lichsuphanhoiddkt'){
+                include("kinhte/lichsuphanhoiddkt.php");
             }
 
             else if($tam =='giaiquyetphanhoiktxong1'){
@@ -145,6 +152,105 @@
             else if($tam =='giaiquyetphanhoinnxong1'){
                 include("nongnghiep/giaiquyetphanhoinnxong1.php");
             }
+            else if($tam =='lichsuphanhoiddnn'){
+                include("nongnghiep/lichsuphanhoiddnn.php");
+            }
+
+            else if($tam =='phanhoidt'){
+                include("daotao/phanhoidt.php");
+            }
+
+            else if($tam =='chitietphanhoidt'){
+                include("daotao/chitietphanhoidt.php");
+            }
+
+            else if($tam =='giaiquyetphanhoidt'){
+                include("daotao/giaiquyetphanhoidt.php");
+            }
+
+            else if($tam =='giaiquyetphanhoidtxong'){
+                include("daotao/giaiquyetphanhoidtxong.php");
+            }
+
+            else if($tam =='giaiquyetphanhoidtxong1'){
+                include("daotao/giaiquyetphanhoidtxong1.php");
+            }
+            else if($tam =='lichsuphanhoidddt'){
+                include("daotao/lichsuphanhoidddt.php");
+            }
+
+            else if($tam =='phanhoiketoan'){
+                include("ketoan/phanhoiketoan.php");
+            }
+
+            else if($tam =='chitietphanhoiketoan'){
+                include("ketoan/chitietphanhoiketoan.php");
+            }
+
+            else if($tam =='giaiquyetphanhoiketoan'){
+                include("ketoan/giaiquyetphanhoiketoan.php");
+            }
+
+            else if($tam =='giaiquyetphanhoiketoanxong'){
+                include("ketoan/giaiquyetphanhoiketoanxong.php");
+            }
+
+            else if($tam =='giaiquyetphanhoiketoanxong1'){
+                include("ketoan/giaiquyetphanhoiketoanxong1.php");
+            }
+            else if($tam =='lichsuphanhoiddketoan'){
+                include("ketoan/lichsuphanhoiddketoan.php");
+            }
+
+            else if($tam =='phanhoictsv'){
+                include("congtacsinhvien/phanhoictsv.php");
+            }
+
+            else if($tam =='chitietphanhoictsv'){
+                include("congtacsinhvien/chitietphanhoictsv.php");
+            }
+
+            else if($tam =='giaiquyetphanhoictsv'){
+                include("congtacsinhvien/giaiquyetphanhoictsv.php");
+            }
+
+            else if($tam =='giaiquyetphanhoictsvxong'){
+                include("congtacsinhvien/giaiquyetphanhoictsvxong.php");
+            }
+
+            else if($tam =='giaiquyetphanhoictsvxong1'){
+                include("congtacsinhvien/giaiquyetphanhoictsvxong1.php");
+            }
+            else if($tam =='lichsuphanhoiddctsv'){
+                include("congtacsinhvien/lichsuphanhoiddctsv.php");
+            }
+
+            else if($tam =='phanhoiqlsv'){
+                include("quanlysinhvien/phanhoiqlsv.php");
+            }
+
+            else if($tam =='chitietphanhoiqlsv'){
+                include("quanlysinhvien/chitietphanhoiqlsv.php");
+            }
+
+            else if($tam =='giaiquyetphanhoiqlsv'){
+                include("quanlysinhvien/giaiquyetphanhoiqlsv.php");
+            }
+
+            else if($tam =='giaiquyetphanhoiqlsvxong'){
+                include("quanlysinhvien/giaiquyetphanhoiqlsvxong.php");
+            }
+
+            else if($tam =='giaiquyetphanhoiqlsvxong1'){
+                include("quanlysinhvien/giaiquyetphanhoiqlsvxong1.php");
+            }
+
+            else if($tam =='lichsuphanhoiddqlsv'){
+                include("quanlysinhvien/lichsuphanhoiddqlsv.php");
+            }
+
+
+
 
             else if($tam =='lichsuphanhoikd'){
                 include("quanly/lichsuphanhoikd.php");

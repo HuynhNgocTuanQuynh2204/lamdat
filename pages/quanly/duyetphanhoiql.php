@@ -25,6 +25,8 @@
                         <option value="3">Kinh tế</option>
                         <option value="4">Sư phạm</option>
                         <option value="5">Khoa nông nghiệp</option>
+                        <option value="6">Phòng kế toán</option>
+                        <option value="7">Phòng công tác sinh viên</option>
                     </select>
                 </div>
                 <div class="col-12">

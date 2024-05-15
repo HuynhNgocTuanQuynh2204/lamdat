@@ -12,9 +12,7 @@
                         </h1>
                         <?php
                         if (isset($_GET['id'])) {
-                            $phongban_id = $_GET['id'];
-
-                            $query = "SELECT trangthai, COUNT(*) AS soluong FROM tbl_phanhoi WHERE phongban = $phongban_id GROUP BY trangthai";
+                            $query = "SELECT trangthai, COUNT(*) AS soluong FROM tbl_phanhoi  GROUP BY trangthai";
                             $result = $mysqli->query($query);
 
                             // Tạo mảng dữ liệu để sử dụng trong biểu đồ

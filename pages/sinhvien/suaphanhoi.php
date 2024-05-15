@@ -25,12 +25,12 @@
                 </div>
 
                 <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">Mô tả vấn đề</label>
+                    <label for="validationCustom02" class="form-label">Nội dung phản ánh</label>
                     <textarea class="form-control" id="tomtat" rows="5" style="resize: none;"
                         name="tomtat"><?php echo $row['tomtat']  ?></textarea>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">Gợi ý hoặc đề xuất cải thiện: </label>
+                    <label for="validationCustom02" class="form-label">Đề xuất cải thiện vấn đề: </label>
                     <textarea class="form-control" id="noidung" rows="5" style="resize: none;"
                         name="noidung"><?php echo $row['noidung']  ?></textarea>
                 </div>

@@ -11,8 +11,7 @@
                         Xin chào: <?php echo $_SESSION['tenql'] ?>
                     </h1>
                     <?php
-                     if($_SESSION['quyenhan']==0)
-                     {
+                     if ($_SESSION['quyenhan'] == 0) {
                         $query = "SELECT trangthai, COUNT(*) AS soluong FROM tbl_phanhoi WHERE phongban = 2 GROUP BY trangthai";
                         $result = $mysqli->query($query);
 
@@ -22,226 +21,163 @@
                             if ($row['trangthai'] == 5) {
                                 $tenTrangThai = 'Đã duyệt';
                             } else {
-                                $tenTrangThai = 'Đang trong quá trình chờ duyệt';
+                                $tenTrangThai = 'Đang trong quá trình hoàn thành';
                             }
 
                             $data[] = array($tenTrangThai, (int)$row['soluong']);
                         }
                         ?>
-                    <?php
- if (empty($data)) {
-    echo "<p>Không tìm thấy phản hồi nào dành cho phòng ban này.</p>";
-} else {
-?>
-                    <!DOCTYPE html>
-                    <html lang="en">
+                        <?php
+                        if (empty($data)) {
+                            echo "<p>Không tìm thấy phản hồi nào dành cho phòng ban này.</p>";
+                        } else {
+                        ?>
+                        <!DOCTYPE html>
+                        <html lang="en">
 
-                    <head>
-                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                        <script type="text/javascript">
-                        google.charts.load("current", {
-                            packages: ["corechart"]
-                        });
-                        google.charts.setOnLoadCallback(drawChart);
+                        <head>
+                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                            <script type="text/javascript">
+                            google.charts.load("current", {
+                                packages: ["corechart"]
+                            });
+                            google.charts.setOnLoadCallback(drawChart);
 
-                        function drawChart() {
-                            // Sử dụng dữ liệu từ truy vấn cơ sở dữ liệu
-                            var data = google.visualization.arrayToDataTable([
-                                ['Trạng Thái', 'Số Lượng'],
-                                <?php
-                                        foreach ($data as $row) {
-                                            echo "['" . $row[0] . "', " . $row[1] . "],";
-                                        }
-                                        ?>
-                            ]);
+                            function drawChart() {
+                                // Sử dụng dữ liệu từ truy vấn cơ sở dữ liệu
+                                var data = google.visualization.arrayToDataTable([
+                                    ['Trạng Thái', 'Số Lượng'],
+                                    <?php
+                                    foreach ($data as $row) {
+                                        echo "['" . $row[0] . "', " . $row[1] . "],";
+                                    }
+                                    ?>
+                                ]);
 
-                            var options = {
-                                title: 'Số lượng số đơn đã duyệt và chưa duyệt của phòng Công Nghệ Thông Tin',
-                                is3D: true,
-                            };
+                                var options = {
+                                    title: 'Số lượng số đơn đã duyệt và chưa duyệt của tất cả các phòng',
+                                    is3D: true,
+                                    width: '100%',
+                                    height: 500,
+                                    chartArea: {
+                                        left: '10%',
+                                        width: '80%',
+                                        height: '80%'
+                                    }
+                                };
 
-                            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-                            chart.draw(data, options);
+                                var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                                chart.draw(data, options);
+                            }
+                            </script>
+                            <style>
+                            #piechart_3d {
+                                width: 100%;
+                                height: 500px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            </style>
+                        </head>
+
+                        <body>
+                            <div class="d-flex justify-content-center">
+                                <div id="piechart_3d"></div>
+                            </div>
+                        </body>
+
+                        </html>
+                        <?php
                         }
-                        </script>
-                    </head>
-
-                    <body>
-                        <div id="piechart_3d" style="width: 100%; height: 500px;"></div>
-                    </body>
-
-                    </html>
-                    <?php
-}
-?>
+                    }
+                    ?>
                 </div>
             </div>
-            <div class="col-md-4">
-                <ul class="list-group mt-3">
-                    <li class="list-group-item"><a href="index.php?quanly=phongbanbd&id=0">Phòng quản Lý sinh viên</a>
-                    </li>
-                    <li class="list-group-item"><a href="index.php?quanly=phongbanbd&id=1">Phòng đào tạo</a></li>
-                    <li class="list-group-item"><a href="index.php?quanly=phongbanbd&id=2">Phòng công nghệ thông tin</a>
-                    </li>
-                    <li class="list-group-item"><a href="index.php?quanly=phongbanbd&id=3">Phòng kinh tế</a></li>
-                    <li class="list-group-item"><a href="index.php?quanly=phongbanbd&id=4">Phòng sư phạm</a></li>
-                    <li class="list-group-item"><a href="index.php?quanly=phongbanbd&id=5">Khoa nông nghiệp</a></li>
+            <div class="container">
+                <h1 class="text-center my-4">Số lượng phản hồi đã giải quyết và chưa giải quyết của từng phòng ban</h1>
+                <?php
+                $phongbans = [
+                    'Phòng quản lý sinh viên' => 0,
+                    'Phòng đào tạo' => 1,
+                    'Công nghệ thông tin' => 2,
+                    'Kinh tế' => 3,
+                    'Sư phạm' => 4,
+                    'Khoa nông nghiệp' => 5,
+                    'Phòng kế toán' => 6,
+                    'Phòng công tác sinh viên' => 7
+                ];
 
-                </ul>
+                foreach ($phongbans as $tenphong => $maphong) {
+                    $sql_total = "SELECT COUNT(*) AS total FROM tbl_phanhoi WHERE phongban = $maphong";
+                    $result_total = mysqli_query($mysqli, $sql_total);
+                    $row_total = mysqli_fetch_assoc($result_total);
 
-            </div>
+                    $sql_hoanthanh = "SELECT COUNT(*) AS soluong FROM tbl_phanhoi WHERE phongban = $maphong AND trangthai = 5";
+                    $result_hoanthanh = mysqli_query($mysqli, $sql_hoanthanh);
+                    $row_hoanthanh = mysqli_fetch_assoc($result_hoanthanh);
 
-            <body>
-                <div class="container">
-                  <h1>Tổng số lượng phản hồi đã giải quyết của từng phòng ban</h1>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="stati turquoise ">
-                                <i class="icon-exclamation icons"></i>
-                                <div>
-                                    <b>
-                                        <?php
-              $sql_phongkhoa = "SELECT COUNT(*) AS soluong FROM tbl_phanhoi WHERE phongban = 0 AND trangthai = 5";
-              $result_phongkhoa = mysqli_query($mysqli, $sql_phongkhoa);
-              $row_phongkhoa = mysqli_fetch_assoc($result_phongkhoa);
-              echo $row_phongkhoa['soluong'];
-              ?>
-                                    </b>
-                                    <span>Phòng quản Lý sinh viên</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="stati turquoise left">
-                                <i class="icon-organization icons"></i>
-                                <div>
-                                    <b>
-                                        <?php
-              $sql_phongkhoa = "SELECT COUNT(*) AS soluong FROM tbl_phanhoi WHERE phongban = 1 AND trangthai = 5";
-              $result_phongkhoa = mysqli_query($mysqli, $sql_phongkhoa);
-              $row_phongkhoa = mysqli_fetch_assoc($result_phongkhoa);
-              echo $row_phongkhoa['soluong'];
-              ?>
-                                    </b>
-                                    <span>Phòng đào tạo</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="stati bg-turquoise ">
-                                <i class="icon-trophy icons"></i>
-                                <div>
-                                    <b>
-                                        <?php
-              $sql_phongkhoa = "SELECT COUNT(*) AS soluong FROM tbl_phanhoi WHERE phongban = 2 AND trangthai = 5";
-              $result_phongkhoa = mysqli_query($mysqli, $sql_phongkhoa);
-              $row_phongkhoa = mysqli_fetch_assoc($result_phongkhoa);
-              echo $row_phongkhoa['soluong'];
-              ?>
-                                    </b>
-                                    <span>Công nghệ thông tin</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="stati bg-turquoise left">
-                                <i class="icon-screen-smartphone icons"></i>
-                                <div>
-                                    <b>
-                                        <?php
-              $sql_phongkhoa = "SELECT COUNT(*) AS soluong FROM tbl_phanhoi WHERE phongban = 3 AND trangthai = 5";
-              $result_phongkhoa = mysqli_query($mysqli, $sql_phongkhoa);
-              $row_phongkhoa = mysqli_fetch_assoc($result_phongkhoa);
-              echo $row_phongkhoa['soluong'];
-              ?>
-                                    </b>
-                                    <span>Kinh tế</span>
-                                </div>
+                    $sql_chuahoanthanh = "SELECT COUNT(*) AS soluong FROM tbl_phanhoi WHERE phongban = $maphong AND trangthai != 5";
+                    $result_chuahoanthanh = mysqli_query($mysqli, $sql_chuahoanthanh);
+                    $row_chuahoanthanh = mysqli_fetch_assoc($result_chuahoanthanh);
+                ?>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="stati turquoise">
+                            <i class="icon-exclamation icons"></i>
+                            <div>
+                                <b><?php echo $row_total['total']; ?></b>
+                                <span><?php echo $tenphong; ?></span>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="stati emerald ">
-                                <i class="icon-screen-desktop icons"></i>
-                                <div>
-                                    <b>
-                                        <?php
-              $sql_phongkhoa = "SELECT COUNT(*) AS soluong FROM tbl_phanhoi WHERE phongban = 4 AND trangthai = 5";
-              $result_phongkhoa = mysqli_query($mysqli, $sql_phongkhoa);
-              $row_phongkhoa = mysqli_fetch_assoc($result_phongkhoa);
-              echo $row_phongkhoa['soluong'];
-              ?>
-                                    </b>
-                                    <span>Sư phạm</span>
-                                </div>
+                    <div class="col-md-4">
+                        <div class="stati turquoise">
+                            <i class="icon-exclamation icons"></i>
+                            <div>
+                                <b><?php echo $row_hoanthanh['soluong']; ?></b>
+                                <span>Đã hoàn thành-<?php echo $tenphong; ?></span>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="stati emerald left">
-                                <i class="icon-plane icons"></i>
-                                <div>
-                                    <b>
-                                        <?php
-              $sql_phongkhoa = "SELECT COUNT(*) AS soluong FROM tbl_phanhoi WHERE phongban = 5 AND trangthai = 5";
-              $result_phongkhoa = mysqli_query($mysqli, $sql_phongkhoa);
-              $row_phongkhoa = mysqli_fetch_assoc($result_phongkhoa);
-              echo $row_phongkhoa['soluong'];
-              ?>
-                                    </b>
-                                    <span>Khoa nông nghiệp</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="stati bg-emerald ">
-                                <i class="icon-notebook icons"></i>
-                                <div>
-                                    <b>
-                                        <?php
-              $sql_phongkhoa = "SELECT COUNT(*) AS soluong FROM tbl_phanhoi WHERE phongban = 6 AND trangthai = 5";
-              $result_phongkhoa = mysqli_query($mysqli, $sql_phongkhoa);
-              $row_phongkhoa = mysqli_fetch_assoc($result_phongkhoa);
-              echo $row_phongkhoa['soluong'];
-              ?>
-                                    </b>
-                                    <span>Phòng Nghiên Cứu và Phát Triển</span>
-                                </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stati red">
+                            <i class="icon-exclamation icons"></i>
+                            <div>
+                                <b><?php echo $row_chuahoanthanh['soluong']; ?></b>
+                                <span>Chưa hoàn thành-<?php echo $tenphong; ?></span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </body>
+                <?php
+                }
+                ?>
+            </div>
+
+            <?php
+            if (isset($_SESSION['id_sv'])) {
+            ?>
+            <h1>
+                Xin chào: <?php echo $_SESSION['tensv'] ?>
+            </h1>
+            <?php
+            }
+            ?>
+            <?php
+            if (isset($_SESSION['id_gv'])) {
+            ?>
+            <h1>
+                Xin chào: <?php echo $_SESSION['tengv'] ?>
+            </h1>
+
+            <?php
+            }
+            ?>
 
         </div>
-        </body>
-
-        </html>
-        <?php
-                    }}
-            ?>
     </div>
 </div>
-</div>
 <?php
-if (isset($_SESSION['id_sv'])) {
-?>
-<h1>
-    Xin chào: <?php echo $_SESSION['tensv'] ?>
-</h1>
-<?php
-}
-?>
-<?php
-if (isset($_SESSION['id_gv'])) {
-?>
-<h1>
-    Xin chào: <?php echo $_SESSION['tengv'] ?>
-</h1>
-
-<?php
-}
-?>
-
-</div>
-</div>
+                    }
+                    ?>

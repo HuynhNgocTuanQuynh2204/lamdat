@@ -21,28 +21,28 @@ if(isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1){
                 <a href="index.php">Hỗ trợ sinh viên</a>
             </div>
         </div>
-            <?php
+        <?php
                  if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan']==0){
             ?>
-            <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
-                    aria-expanded="false" aria-controls="auth">
-                    <i class="lni lni-layout"></i>
-                    <span>Phản hồi</span>
-                </a>
-                <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                    <li class="sidebar-item">
-                        <a href="index.php?quanly=lichsuphanhoicd" class="sidebar-link">Lịch sử chưa
-                            duyệt</a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="index.php?quanly=lichsuphanhoidd" class="sidebar-link">Lịch sử đã
-                            duyệt</a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="index.php?quanly=lichsuphanhoikd" class="sidebar-link">Lịch sử không duyệt</a>
-                </ul>
-            </li>
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
+                aria-expanded="false" aria-controls="auth">
+                <i class="lni lni-layout"></i>
+                <span>Phản hồi</span>
+            </a>
+            <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=lichsuphanhoicd" class="sidebar-link">Lịch sử chưa
+                        duyệt</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=lichsuphanhoidd" class="sidebar-link">Lịch sử đã
+                        duyệt</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=lichsuphanhoikd" class="sidebar-link">Lịch sử không duyệt</a>
+            </ul>
+        </li>
         </ul>
         </li>
         <li class="sidebar-item">
@@ -107,9 +107,83 @@ if(isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1){
             </ul>
         </li>
         <?php
+                    }else if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan'] == 1){
+                        ?>
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
+                aria-expanded="false" aria-controls="auth">
+                <i class="lni lni-layout"></i>
+                <span>Phản hồi</span>
+            </a>
+            <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=phanhoidt" class="sidebar-link">Phản hồi sinh viên</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=lichsuphanhoidddt" class="sidebar-link">Lịch sử đã
+                        duyệt</a>
+                </li>
+            </ul>
+            <?php
+                    }else if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan'] == 2){
+                        ?>
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
+                aria-expanded="false" aria-controls="auth">
+                <i class="lni lni-layout"></i>
+                <span>Phản hồi</span>
+            </a>
+            <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=phanhoiketoan" class="sidebar-link">Phản hồi sinh viên</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=lichsuphanhoiddketoan" class="sidebar-link">Lịch sử đã
+                        duyệt</a>
+                </li>
+            </ul>
+            <?php
+                    }else if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan'] == 3){
+                        ?>
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
+                aria-expanded="false" aria-controls="auth">
+                <i class="lni lni-layout"></i>
+                <span>Phản hồi</span>
+            </a>
+            <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=phanhoictsv" class="sidebar-link">Phản hồi sinh viên</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=lichsuphanhoiddctsv" class="sidebar-link">Lịch sử đã
+                        duyệt</a>
+                </li>
+            </ul>
+        <?php
+                    }else if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan'] == 5){
+                        ?>
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
+                aria-expanded="false" aria-controls="auth">
+                <i class="lni lni-layout"></i>
+                <span>Phản hồi</span>
+            </a>
+            <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=phanhoidt" class="sidebar-link">Phản hồi sinh viên</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=lichsuphanhoidddt" class="sidebar-link">Lịch sử phản hồi đã hoàn thành</a>
+                </li>
+            </ul>
+        </li>
+        </ul>
+        </li>
+        <?php
                     }else if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan'] == 6){
                         ?>
-         <li class="sidebar-item">
+        <li class="sidebar-item">
             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
                 aria-expanded="false" aria-controls="auth">
                 <i class="lni lni-layout"></i>
@@ -120,36 +194,30 @@ if(isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1){
                     <a href="index.php?quanly=phanhoicntt" class="sidebar-link">Phản hồi sinh viên</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="index.php?quanly=lichsuphanhoidd" class="sidebar-link">Lịch sử đã
-                        duyệt</a>
+                    <a href="index.php?quanly=lichsuphanhoiddcntt" class="sidebar-link">Lịch sử phản hồi đã hoàn thành</a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="index.php?quanly=lichsuphanhoikd" class="sidebar-link">Lịch sử không duyệt</a>
             </ul>
         </li>
         </ul>
         </li>
+        
         <?php
                     }else if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan'] == 9){
                         ?>
-        <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
-            aria-expanded="false" aria-controls="auth">
-            <i class="lni lni-layout"></i>
-            <span>Phản hồi</span>
-        </a>
-        <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-            <li class="sidebar-item">
-                <a href="index.php?quanly=phanhoikt" class="sidebar-link">Phản hồi sinh viên</a>
-            </li>
-            <li class="sidebar-item">
-                <a href="index.php?quanly=lichsuphanhoidd" class="sidebar-link">Lịch sử đã
-                    duyệt</a>
-            </li>
-            <li class="sidebar-item">
-                <a href="index.php?quanly=lichsuphanhoikd" class="sidebar-link">Lịch sử không duyệt</a>
-        </ul>
-        </li>
-        </ul>
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
+                aria-expanded="false" aria-controls="auth">
+                <i class="lni lni-layout"></i>
+                <span>Phản hồi</span>
+            </a>
+            <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=phanhoikt" class="sidebar-link">Phản hồi sinh viên</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="index.php?quanly=lichsuphanhoiddkt" class="sidebar-link">Lịch sử phản hồi đã hoàn thành</a>
+                </li>
+            </ul>
         </li>
         <?php
                     }else if(isset($_SESSION['quyenhan']) && $_SESSION['quyenhan'] == 8){
@@ -165,11 +233,8 @@ if(isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1){
                     <a href="index.php?quanly=phanhoisp" class="sidebar-link">Phản hồi sinh viên</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="index.php?quanly=lichsuphanhoisp" class="sidebar-link">Lịch sử đã
-                        duyệt</a>
+                    <a href="index.php?quanly=lichsuphanhoisp" class="sidebar-link">Lịch sử đLịch sử phản hồi đã hoàn thành</a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="index.php?quanly=lichsuphanhoisp" class="sidebar-link">Lịch sử không duyệt</a>
             </ul>
         </li>
         </ul>
@@ -188,11 +253,8 @@ if(isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1){
                     <a href="index.php?quanly=phanhoinn" class="sidebar-link">Phản hồi sinh viên</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="index.php?quanly=lichsuphanhoinn" class="sidebar-link">Lịch sử đã
-                        duyệt</a>
+                    <a href="index.php?quanly=lichsuphanhoiddnn" class="sidebar-link">Lịch sử Lịch sử phản hồi đã hoàn thành</a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="index.php?quanly=lichsuphanhoinn" class="sidebar-link">Lịch sử không duyệt</a>
             </ul>
         </li>
         </ul>
