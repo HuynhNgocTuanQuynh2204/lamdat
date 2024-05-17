@@ -7,7 +7,7 @@
     <div class="text-center">
         <h1 style="text-align: center;padding: 10px;">Nội dung cần gửi đến sinh viên</h1>
         <form class="row g-3 needs-validation" method="POST"
-            action="index.php?quanly=giaiquyetphanhoicnttxong1&id=<?php echo $row['id_phanhoi'] ?>" novalidate
+            action="index.php?quanly=giaiquyetphanhoinnxong1&id=<?php echo $row['id_phanhoi'] ?>" novalidate
             enctype="multipart/form-data">
             <div class="col-md-12">
                 <label for="validationCustom02" class="form-label">Nội dung giải quyết xong </label>
