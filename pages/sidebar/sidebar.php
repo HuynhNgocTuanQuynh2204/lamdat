@@ -171,10 +171,10 @@ if(isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1){
             </a>
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="index.php?quanly=phanhoidt" class="sidebar-link">Phản hồi sinh viên</a>
+                    <a href="index.php?quanly=phanhoiqlsv" class="sidebar-link">Phản hồi sinh viên</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="index.php?quanly=lichsuphanhoidddt" class="sidebar-link">Lịch sử phản hồi đã hoàn thành</a>
+                    <a href="index.php?quanly=lichsuphanhoiddqlsv" class="sidebar-link">Lịch sử phản hồi đã hoàn thành</a>
                 </li>
             </ul>
         </li>

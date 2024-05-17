@@ -95,6 +95,8 @@
                 </div>
             </div>
             <div class="container">
+                <?php
+                  if ($_SESSION['quyenhan'] == 0) {?>
                 <h1 class="text-center my-4">Số lượng phản hồi đã giải quyết và chưa giải quyết của từng phòng ban</h1>
                 <?php
                 $phongbans = [
@@ -154,7 +156,10 @@
                 }
                 ?>
             </div>
-
+<?php
+                    }
+                    ?>
+                </div>
             <?php
             if (isset($_SESSION['id_sv'])) {
             ?>
