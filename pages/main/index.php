@@ -1,99 +1,107 @@
 <link rel="stylesheet" href="css/thongke.css">
 <div class="main p-3">
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="text-center">
-                    <?php
-                    if (isset($_SESSION['id_ql'])) {
-                    ?>
-                    <h1>
-                        Xin chào: <?php echo $_SESSION['tenql'] ?>
-                    </h1>
-                    <?php
-                     if ($_SESSION['quyenhan'] == 0) {
-                        $query = "SELECT trangthai, COUNT(*) AS soluong FROM tbl_phanhoi WHERE phongban = 2 GROUP BY trangthai";
-                        $result = $mysqli->query($query);
+    <div class="row">
+    <div class="col-md-8">
+        <div class="text-center">
+            <?php
+            if (isset($_SESSION['id_ql'])) {
+            ?>
+            <h1>
+                Xin chào: <?php echo $_SESSION['tenql'] ?>
+            </h1>
+            <?php
+             if ($_SESSION['quyenhan'] == 0) {
+                $query = "SELECT trangthai, COUNT(*) AS soluong FROM tbl_phanhoi GROUP BY trangthai";
+                $result = $mysqli->query($query);
 
-                        // Tạo mảng dữ liệu để sử dụng trong biểu đồ
-                        $data = array();
-                        while ($row = $result->fetch_assoc()) {
-                            if ($row['trangthai'] == 5) {
-                                $tenTrangThai = 'Đã duyệt';
-                            } else {
-                                $tenTrangThai = 'Đang trong quá trình hoàn thành';
-                            }
-
-                            $data[] = array($tenTrangThai, (int)$row['soluong']);
-                        }
-                        ?>
-                        <?php
-                        if (empty($data)) {
-                            echo "<p>Không tìm thấy phản hồi nào dành cho phòng ban này.</p>";
-                        } else {
-                        ?>
-                        <!DOCTYPE html>
-                        <html lang="en">
-
-                        <head>
-                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                            <script type="text/javascript">
-                            google.charts.load("current", {
-                                packages: ["corechart"]
-                            });
-                            google.charts.setOnLoadCallback(drawChart);
-
-                            function drawChart() {
-                                // Sử dụng dữ liệu từ truy vấn cơ sở dữ liệu
-                                var data = google.visualization.arrayToDataTable([
-                                    ['Trạng Thái', 'Số Lượng'],
-                                    <?php
-                                    foreach ($data as $row) {
-                                        echo "['" . $row[0] . "', " . $row[1] . "],";
-                                    }
-                                    ?>
-                                ]);
-
-                                var options = {
-                                    title: 'Số lượng số đơn đã duyệt và chưa duyệt của tất cả các phòng',
-                                    is3D: true,
-                                    width: '100%',
-                                    height: 500,
-                                    chartArea: {
-                                        left: '10%',
-                                        width: '80%',
-                                        height: '80%'
-                                    }
-                                };
-
-                                var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-                                chart.draw(data, options);
-                            }
-                            </script>
-                            <style>
-                            #piechart_3d {
-                                width: 100%;
-                                height: 500px;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                            }
-                            </style>
-                        </head>
-
-                        <body>
-                            <div class="d-flex justify-content-center">
-                                <div id="piechart_3d"></div>
-                            </div>
-                        </body>
-
-                        </html>
-                        <?php
-                        }
+                // Tạo mảng dữ liệu để sử dụng trong biểu đồ
+                $data = array();
+                while ($row = $result->fetch_assoc()) {
+                    if ($row['trangthai'] == 5) {
+                        $tenTrangThai = 'Đã hoàn thành';
+                    } else {
+                        $tenTrangThai = 'Đang trong quá trình giải quyết';
                     }
-                    ?>
-                </div>
-            </div>
+
+                    // Gộp số lượng cho cùng một trạng thái
+                    if (isset($data[$tenTrangThai])) {
+                        $data[$tenTrangThai] += (int)$row['soluong'];
+                    } else {
+                        $data[$tenTrangThai] = (int)$row['soluong'];
+                    }
+                }
+                ?>
+                <?php
+                if (empty($data)) {
+                    echo "<p>Không tìm thấy phản hồi nào dành cho phòng ban này.</p>";
+                } else {
+                ?>
+                <!DOCTYPE html>
+                <html lang="en">
+
+                <head>
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript">
+                    google.charts.load("current", {
+                        packages: ["corechart"]
+                    });
+                    google.charts.setOnLoadCallback(drawChart);
+
+                    function drawChart() {
+                        // Sử dụng dữ liệu từ truy vấn cơ sở dữ liệu
+                        var data = google.visualization.arrayToDataTable([
+                            ['Trạng Thái', 'Số Lượng'],
+                            <?php
+                            foreach ($data as $tenTrangThai => $soluong) {
+                                echo "['" . $tenTrangThai . "', " . $soluong . "],";
+                            }
+                            ?>
+                        ]);
+
+                        var options = {
+                            title: 'Số lượng số đơn đã duyệt và chưa duyệt của tất cả các phòng',
+                            is3D: true,
+                            colors: ['#4CAF50', '#FF9800'], // Màu cho Đã hoàn thành và Đang trong quá trình giải quyết
+                            width: '100%',
+                            height: 500,
+                            chartArea: {
+                                left: '10%',
+                                width: '80%',
+                                height: '80%'
+                            }
+                        };
+
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                        chart.draw(data, options);
+                    }
+                    </script>
+                    <style>
+                    #piechart_3d {
+                        width: 100%;
+                        height: 500px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    </style>
+                </head>
+
+                <body>
+                    <div class="d-flex justify-content-center">
+                        <div id="piechart_3d"></div>
+                    </div>
+                </body>
+
+                </html>
+                <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
+</div>
+
             <div class="container">
                 <?php
                   if ($_SESSION['quyenhan'] == 0) {?>
