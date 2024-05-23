@@ -12,12 +12,12 @@
     
     <link rel="stylesheet" href="css/dangnhap.css">
 </head>
-
 <body>
 
-    <div class="main" >
+    <div class="main" style="background-image: url('images/DHBACLIEU.jpg'); background-size: cover; background-position: center; height: 60vh; display: flex; justify-content: center; align-items: center;">
         <section class="sign-in">
-            <div class="container">
+        <div class="container" >
+
                 <div class="signin-content">
                     <div class="signin-image" style="margin:0px auto;">
                         <figure ><img src="images/logodhbl.jpg" alt="sing up image"> </figure>
@@ -26,7 +26,7 @@
 
                     <div class="signin-form">
                         <h2 class="form-title">Đăng nhập</h2>
-                        <form method="POST" class="register-form" id="login-form" action="pages/xulydangnhap.php">
+                        <form method="POST" class="register-form" id="login-form" action="pages/xulydangnhap.php" >
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name" id="your_name" placeholder="Your Name"/>
