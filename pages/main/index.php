@@ -173,11 +173,11 @@
         </div>
         <?php
             } elseif (isset($_SESSION['id_sv'])) {
+                header("location:index.php?quanly=phanhoi");
         ?>
         <h1>
             Xin chào: <?php echo $_SESSION['tensv']; ?>
         </h1>
-        <img src="images/DHBACLIEU.jpg" alt="">
         <?php
             } elseif (isset($_SESSION['id_gv'])) {
         ?>
