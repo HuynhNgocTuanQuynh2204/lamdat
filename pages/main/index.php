@@ -165,9 +165,8 @@
             ?>
         </div>
         <?php
-                }else{?>
-        <img src="images/DHBACLIEU.jpg" alt="">
-        <?php
+                }else{
+                    header("location:index.php?quanly=phanhoicntt");
             }
         ?>
         </div>
@@ -184,7 +183,6 @@
         <h1>
             Xin chào: <?php echo $_SESSION['tengv']; ?>
         </h1>
-        <img src="images/DHBACLIEU.jpg" alt="">
         <?php
             }
         ?>
