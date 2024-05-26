@@ -108,14 +108,14 @@
             <h1 class="text-center my-4">Số lượng phản hồi đã giải quyết và chưa giải quyết của từng phòng ban</h1>
             <?php
             $phongbans = [
-                'Phòng quản lý sinh viên' => 0,
-                'Phòng đào tạo' => 1,
-                'Công nghệ thông tin' => 2,
-                'Kinh tế' => 3,
-                'Sư phạm' => 4,
-                'Khoa nông nghiệp' => 5,
-                'Phòng kế toán' => 6,
-                'Phòng công tác sinh viên' => 7
+                'Phòng quản lý sinh viên' => 1,
+                'Phòng đào tạo' => 2,
+                'Công nghệ thông tin' => 3,
+                'Kinh tế' => 4,
+                'Sư phạm' => 5,
+                'Khoa nông nghiệp' => 6,
+                'Phòng kế toán' => 7,
+                'Phòng công tác sinh viên' => 8
             ];
 
             foreach ($phongbans as $tenphong => $maphong) {

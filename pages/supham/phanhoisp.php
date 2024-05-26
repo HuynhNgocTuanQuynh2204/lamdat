@@ -25,7 +25,7 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
             $i = 0;
             while ($row = mysqli_fetch_array($query_lietke_phanhoi)) {
               $i++;
-              if ($row['trangthai'] != 0 && $row['trangthai'] != 1 && $row['trangthai'] != 5 && $row['phongban'] == 4) {
+              if ($row['trangthai'] != 0 && $row['trangthai'] != 1 && $row['trangthai'] != 5 && $row['phongban'] == 5) {
             ?>
                         <tr>
                             <td><?php echo $i ?></td>

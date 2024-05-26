@@ -19,14 +19,14 @@
                 <div class="col-md-6 mx-auto"> 
                     <label for="inputState" class="form-label">Phòng khoa</label>
                     <select id="inputState" class="form-select" name="phongkhoa">
-                        <option selected value="0">Phòng quản Lý sinh viên </option>
-                        <option value="1">Phòng đào tạo </option>
-                        <option value="2">Công nghệ thông tin</option>
-                        <option value="3">Kinh tế</option>
-                        <option value="4">Sư phạm</option>
-                        <option value="5">Khoa nông nghiệp</option>
-                        <option value="6">Phòng kế toán</option>
-                        <option value="7">Phòng công tác sinh viên</option>
+                        <option selected value="1">Phòng quản Lý sinh viên </option>
+                        <option value="2">Phòng đào tạo </option>
+                        <option value="3">Công nghệ thông tin</option>
+                        <option value="4">Kinh tế</option>
+                        <option value="5">Sư phạm</option>
+                        <option value="6">Khoa nông nghiệp</option>
+                        <option value="7">Phòng kế toán</option>
+                        <option value="8">Phòng công tác sinh viên</option>
                     </select>
                 </div>
                 <div class="col-12">
