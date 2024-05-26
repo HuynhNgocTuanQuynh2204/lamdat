@@ -46,7 +46,7 @@ $query_lietke_phanhoi= mysqli_query($mysqli, $sql_lietke_phanhoi);
             ?>
                         <tr>
                             <td><?php echo $i ?></td>
-                            <td><?php echo $row['chude'] ?></td>
+                            <td><?php echo $row['theloai'] ?></td>
                             <td><?php echo $row['theloai'] ?></td>
                             <td><?php echo $row['mucdo'] ?></td>
                             <td>
